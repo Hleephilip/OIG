@@ -1,6 +1,6 @@
 # Diffusion-Based Conditional Image Editing through Optimized Inference with Guidance
 
-Official implementation of "Diffusion-Based Conditional Image Editing through Optimized Inference with Guidance" (WACV 2025).
+Official implementation of "Diffusion-Based Conditional Image Editing through Optimized Inference with Guidance" (WACV 2025). [[paper](https://arxiv.org/pdf/2412.15798)]
 
 
 
@@ -30,6 +30,11 @@ Reconstructed and edited images are saved as `reconstruction.png` and `edit.png`
 
 Note that the value of the arguments `--clip_guidance` and `--structure_guidance` correspond to the value of the hyperparameters $\lambda _1$ and $\lambda _2$, respectively. The values of $\beta _p$ and $\beta _f$ can be modified by using `--beta_p` and `--beta_f` argument, respectively.
 
+We recommend setting `<LAMBDA_1>` to a value close to `0.1`. For `<LAMBDA_2>`, we suggest choosing a value from `{0.5, 1.0, 1.5}`. For the sensitivity analysis of `<LAMBDA_2>`, please refer to Figure 5 in the main paper.
+
+
+
+
 ### Edit real images with OIG 
 
 To edit a real image with OIG, firstly do the DDIM inversion using the command:
@@ -51,7 +56,7 @@ python src/edit_real.py --inversion "output/test_cat/inversion/" \
 ```
 
 
-All files are save din `--results_folder` directory:
+All files are saved in `--results_folder` directory:
 
 ```
 output/test_cat
@@ -80,3 +85,17 @@ We can use OIG $^{+}$ to edit the synthetic and real images by setting the value
 
 This method is implemented based on [pix2pix-zero](https://github.com/pix2pixzero/pix2pix-zero/).
 
+
+
+### Citation
+
+``` bibtex
+
+@inproceedings{lee2025diffusion,
+  title={Diffusion-Based Conditional Image Editing through Optimized Inference with Guidance},
+  author={Lee, Hyunsoo and Kang, Minsoo and Han, Bohyung},
+  booktitle={IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+  year={2025}
+}
+
+```
